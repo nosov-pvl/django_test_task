@@ -6,7 +6,6 @@ from fibonacci import calculator
 
 @api_view(['GET'])
 def fibonacci_request(request):
-    print(request.query_params)
 
     from_data = None
     try:
@@ -39,4 +38,4 @@ def fibonacci_request(request):
     if fro > to:
         return Response({"error": "From value must be less or equal than to value"}, status=status.HTTP_400_BAD_REQUEST)
 
-    return Response({"response" : calculator.calculate_fibonacci(fro, to)})
+    return Response({"response": calculator.calculate_fibonacci(fro, to)})

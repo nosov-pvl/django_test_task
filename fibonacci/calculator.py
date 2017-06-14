@@ -1,6 +1,7 @@
 import redis
 from test_task import settings
 
+
 def calculate_fibonacci(fro, to):
 
     fibonacci_list = [0, 1]
