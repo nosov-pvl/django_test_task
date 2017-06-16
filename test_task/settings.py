@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=4p-bu4vdv2l^7zkcblzcb)ntacokf2e3f6ri4x=6j+^_p)622'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0']
 
@@ -119,5 +119,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REDIS_HOST = 'redis'
-REDIS_PORT = 6379
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "example"
+    }
+}
